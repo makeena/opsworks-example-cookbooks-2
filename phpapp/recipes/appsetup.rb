@@ -7,6 +7,7 @@ node[:deploy].each do |app_name, deploy|
     code <<-EOH
     curl -s https://getcomposer.org/installer | php
     php composer.phar install
+    sudo chown -R www-data app/logs app/cache/
     EOH
   end
 end
