@@ -9,5 +9,6 @@ node[:deploy].each do |app_name, deploy|
     php composer.phar install
     sudo chown -R www-data app/logs app/cache/
     EOH
+    only_if "test -f app/logs"
   end
 end
