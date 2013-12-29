@@ -16,7 +16,6 @@ node[:deploy].each do |app_name, deploy|
     user "root"
     cwd "#{deploy[:deploy_to]}/current"
     code <<-EOH
-    apt-get install php5-intl -y
     curl -s https://getcomposer.org/installer | php
     php composer.phar install
     mkdir app/logs app/cache
